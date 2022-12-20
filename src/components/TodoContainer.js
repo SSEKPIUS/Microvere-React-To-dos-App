@@ -9,7 +9,7 @@ import Header from './Header';
 import InputTodo from './InputTodo';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
-import Link from './Link';
+import Navbar from './Navbar';
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos);
@@ -69,14 +69,10 @@ const TodoContainer = () => {
 
   return (
     <>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/books">Books</Link></li>
-        </ul>
-      </nav>
+      <Navbar />
       <Routes>
         <Route
+          exact
           path="/"
           element={(
             <div className="container">
