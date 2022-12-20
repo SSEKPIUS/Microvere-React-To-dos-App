@@ -3,9 +3,13 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Route, Routes } from 'react-router-dom';
 import TodoList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
+import About from '../pages/About';
+import NotMatch from '../pages/NotMatch';
+import Link from './Link';
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos);
@@ -64,18 +68,35 @@ const TodoContainer = () => {
   };
 
   return (
-    <div className="container">
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={addTodoItem} />
-        <TodoList
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
+    <>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/books">Books</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <div className="container">
+              <div className="inner">
+                <Header />
+                <InputTodo addTodoProps={addTodoItem} />
+                <TodoList
+                  todos={todos}
+                  handleChangeProps={handleChange}
+                  deleteTodoProps={delTodo}
+                  setUpdate={setUpdate}
+                />
+              </div>
+            </div>
+            )}
         />
-      </div>
-    </div>
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotMatch />} />
+      </Routes>
+    </>
   );
 };
 
