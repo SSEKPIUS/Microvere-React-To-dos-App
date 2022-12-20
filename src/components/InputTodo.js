@@ -2,6 +2,7 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const InputTodo = (props) => {
   const [inputText, setTitle] = useState({
@@ -36,7 +37,9 @@ const InputTodo = (props) => {
         value={inputText.title}
         onChange={onChange}
       />
-      <button className="input-submit">Submit</button>
+      <button className="input-submit">
+        <FaPlusCircle />
+      </button>
     </form>
   );
 };

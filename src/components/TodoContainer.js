@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
@@ -74,7 +75,6 @@ const TodoContainer = () => {
           setUpdate={setUpdate}
         />
       </div>
-
     </div>
   );
 };
